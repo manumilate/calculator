@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Calculator</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+		<link rel="stylesheet" href="js/jquery.mobile-1.4.5.min.css">
+		<script src="js/jquery.min.js"></script>
+		<script src="js/jquery.mobile-1.4.5.min.js"></script>
+		<script src="cordova.js"></script>
+		
+		
+	</head>
+
+	<body>
+		<div data-role="page" id="pageone">
+			
+			<div data-role="header" data-theme="b">
+				<h1>Simple Calculator</h1>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageone" class="ui-btn-active ui-state-persist" data-icon="home">home</a></li>
+						<li><a href="#pagetwo" data-icon="grid">Calculator</a></li>
+						<li><a href="#pagethree" data-icon="info">help</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div data-role="main" class="ui-content">
+				<p>This is a jQuery mobile exercise which provides the user with a calulator for basic mathematical operations</p>
+			</div>
+			
+			<div data-role="footer">
+				<h1>Homework</h1>
+			</div>
+		
+			
+		</div>
+		
+		<div data-role="page" id="pagetwo">
+			
+			<div data-role="header">
+				<h1>Simple Calculator</h1>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageone" data-icon="home">home</a></li>
+						<li><a href="#pagetwo" class="ui-btn-active ui-state-persist"  data-icon="grid">Calculator</a></li>
+						<li><a href="#pagethree" data-icon="info">help</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div data-role="main" class="ui-content">
+				<form method="post" action="form.asp">
+					<fieldset data-role="controlgroup">
+						<input type="text" id="first">
+						<select name="operator" id="operator">
+							<option value="+">+</option>
+							<option value="-">-</option>
+							<option value="x">*</option>
+							<option value="/">/</option>
+						</select>
+						<input type="text" id="second">
+						<a href="#result" class="ui-btn" onclick="calculator()">Calculate</a>
+					</fieldset>
+				</form>
+			</div>
+			
+			<div data-role="footer">
+				<h1>Homework</h1>
+			</div>
+			
+			
+		</div>
+		
+		<div data-role="page" id="pagethree">
+			
+			<div data-role="header">
+				<h1>Simple Calculator</h1>
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageone" data-icon="home">home</a></li>
+						<li><a href="#pagetwo" data-icon="grid">Calculator</a></li>
+						<li><a href="#pagethree" class="ui-btn-active ui-state-persist" data-icon="info">help</a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div data-role="main" class="ui-content">
+				<p>This is the help section and provides basic information about how to use the calculator</p>
+				<a href="#help" class="ui-btn ui-icon-info ui-btn-icon-left">More Info</a>
+			
+			
+			</div>
+			
+			<div data-role="footer">
+				<h1>Homework</h1>
+			</div>
+			
+			
+		</div>
+		
+		
+		<div data-role="page" id="help" data-dialog="true">
+			
+			<div data-role="header">
+				<h1>More Info</h1>
+				
+			</div>
+			
+			<div data-role="main" class="ui-content">
+				<p>You have requested more information about the App!</p>
+				<a href="#" class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back">Dismiss</a>
+			
+			
+			</div>
+			
+			
+		</div>
+		
+		<div data-role="page" id="result" >
+			
+			<div data-role="header">
+				<div data-role="navbar">
+					<ul>
+						<li><a href="#pageone"  data-icon="home">home</a></li>
+						<li><a href="#pagetwo" class="ui-btn-active ui-state-persist" data-icon="grid">Calculator</a></li>
+						<li><a href="#pagethree" data-icon="info">help</a></li>
+					</ul>
+				</div>
+				
+			</div>
+			
+			<div data-role="main" class="ui-content">
+			<p id=>Operation:</p>
+			<p id="calculation"></p>
+			
+			<p id=>Results:</p>
+			<p id="answer"></p>
+			<a href="#" class="ui-btn ui-icon-back ui-btn-icon-left" data-rel="back">back</a>
+			</div>
+			<div data-role="footer">
+				<h1>Homework</h1>
+			</div>
+		</div>	
+	</body>
+	<script>
+	
+	function calculator(){
+	var num1=parseInt(document.getElementById('first').value);
+	var num2=parseInt(document.getElementById('second').value);
+	var operator=document.getElementById('operator').value;
+	
+		switch(operator){
+			case '+':
+				var answer = num1 + num2;
+				break;
+
+			case '-':
+				var answer = num1 - num2;
+				break;
+
+			case 'x':
+				var answer = num1 * num2;
+				break;
+
+			case '/':
+				var answer = num1 / num2;
+				break;
+
+			default:
+				break;
+		}
+	
+	
+	document.getElementById('calculation').innerHTML= num1+" "+operator+" "+num2;
+	document.getElementById('answer').innerHTML= answer;
+	}
+	</script>
+</html>
